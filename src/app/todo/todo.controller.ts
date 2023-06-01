@@ -40,7 +40,7 @@ export class TodoController {
     isArray: true
   })
   async index() {
-    return await this.todoService.findAll();
+    return this.todoService.findAll();
   }
 
 
@@ -57,7 +57,7 @@ export class TodoController {
     type: BadRequestSwagger
   })
   async create(@Body() body: CreateTodoDto) {
-    return await this.todoService.create(body);
+    return this.todoService.create(body);
   }
 
 
@@ -74,7 +74,7 @@ export class TodoController {
     type: NotFoundSwagger
   })
   async show(@Param("id", new ParseUUIDPipe()) id: string) {
-    return await this.todoService.findOneOrFail(id);
+    return this.todoService.findOneOrFail(id);
   }
 
 
@@ -99,7 +99,7 @@ export class TodoController {
     @Param("id", new ParseUUIDPipe()) id: string,
     @Body() body: UpdateTodoDto
   ) {
-    return await this.todoService.update(id, body);
+    return this.todoService.update(id, body);
   }
 
 
